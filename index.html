@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Added Font Awesome CSS -->
+  <style>
+    /* Sticky Navigation Bar */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000; /* Ensure the navigation bar is above other elements */
+      background-color: #343a40; /* Dark background */
+      padding: 10px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+    }
+    .navbar-nav .nav-item {
+      padding-right: 25px; /* Adjust the padding as needed */
+    }
+    .nav-link {
+      color: #fff; /* White text */
+    }
+    .nav-link:hover {
+      color: #f8f9fa; /* Lighter text on hover */
+    }
+    .card a {
+      color: white; /* Set link color to white */
+    }
+    .card a:hover {
+      color: #f8f9fa; /* Set link color on hover */
+    }
+    /* Custom CSS for the 'About' section */
+    .about-section {
+      text-align: center; /* Align 'About' heading and content to the center */
+      padding: 0px 15px; /* Add padding to the top and bottom */
+    }
+    .about-heading {
+      font-size: 36px;
+      margin-bottom: 15px; /* Adjust the space between 'About' heading and image */
+    }
+    .about-image-container {
+      width: 200px; /* Set the width of the container */
+      height: 200px; /* Set the height of the container */
+      border-radius: 50%; /* Ensure the container is a perfect circle */
+      overflow: hidden; /* Hide any overflowing content */
+      margin: 30px auto; /* Center the container horizontally and add space above */
+    }
+    .about-image {
+      width: 100%; /* Ensure the image fills the container */
+      height: 100%; /* Ensure the image fills the container */
+      object-fit: cover; /* Prevent stretching the image while maintaining aspect ratio */
+      object-position: center; /* Center the image within the container */
+    }
+    .about-text {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0px 0px; /* Add padding to the top and bottom */
+    }
+    /* Custom CSS for the 'Projects' section */
+    .projects-section {
+      text-align: center; /* Align 'Projects' heading and content to the center */
+      padding: 5px 15px; /* Add padding to the top and bottom */
+    }
+    .project-heading {
+      font-size: 36px;
+      margin-bottom: 30px; /* Add space between 'Projects' heading and cards */
+      padding: 20px 20px; /* Add padding to the top and bottom */
+    }
+    .project-card {
+      margin-bottom: 30px; /* Add space between cards */
+    }
+    /* Custom CSS for the 'Skills' section */
+    .skills-section {
+      text-align: center; /* Align 'Skills' heading and content to the center */
+      padding: 5px 15px; /* Add padding to the top and bottom */
+    }
+    .skills-heading {
+      font-size: 36px;
+      margin-bottom: 30px; /* Add space between 'Skills' heading and cards */
+      padding: 20px 20px; /* Add padding to the top and bottom */
+    }
+    .skills-card {
+      margin-bottom: 30px; /* Add space between skill cards */
+    }
+    .skills-image-container{
+      background-color: transparent; /* or use #fff for pure white */
+      border: none;   
+    }
+    /* Custom CSS for the 'Other Skills' section */
+    .other-skills-section {
+      text-align: center; /* Align 'Other Skills' heading and content to the center */
+      padding: 5px 15px; /* Add padding to the top and bottom */
+    }
+    .other-skills-heading {
+      font-size: 36px;
+      margin-bottom: 30px; /* Add space between 'Other Skills' heading and cards */
+      padding: 20px 20px; /* Add padding to the top and bottom */
+    }
+    .other-skills-card {
+      margin-bottom: 30px; /* Add space between skill cards */
+    }
+    /* Centering the skill cards */
+    .other-skills-section .container .row {
+      display: flex;
+      justify-content: center; /* Center the skill cards horizontally */
+      flex-wrap: wrap; /* Ensure cards wrap to the next line if there's not enough space */
+    }
+    /* Custom CSS for the 'Contact Me' section */
+    .contact-section {
+      text-align: center; /* Align 'Contact Me' heading and content to the center */
+      padding: 20px 20px; /* Add padding to the top and bottom */
+      background-color: #343a40; /* Dark background */
+      color: #fff; /* White text */
+    }
+    .contact-heading {
+      font-size: 36px;
+      margin-bottom: 30px; /* Add space between 'Contact Me' heading and content */
+    }
+    .contact-info {
+      margin-bottom: 20px; /* Add space between contact information and social icons */
+    }
+    .contact-icon {
+      margin-right: 5px; /* Add space between contact icon and text */
+    }
+    .social-icons {
+      margin-top: 20px; /* Add space above social icons */
+    }
+    .social-icon {
+      display: inline-block;
+      margin-right: 10px; /* Add space between social icons */
+      border-radius: 50%; /* Round border */
+      background-color: #ffffff; /* White background */
+      padding: 0; /* Padding around the icon */
+    }
+    .social-icon img {
+      width: 30px; /* Set the width of the icon */
+      height: 30px; /* Set the height of the icon */
+      border-radius: 50%; /* Ensure the icon is circular */
+    }
+    .social-icon:hover {
+      background-color: #ffffff; /* White background on hover */
+    }
+    /* Custom CSS for the logo */
+    .logo {
+      width: 40px; /* Increase the width of the logos */
+      height: 40px; /* Increase the height of the logos */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sticky Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-nav">
+  <div class="container">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#other-skills">Other Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+  <div class="container">
+    <h2 class="about-heading">About</h2>
+    <!-- Image container -->
+    <div class="about-image-container">
+      <!-- Circular image -->
+      <img src="dunsfort.github.io/images/imagesaboutme1.jpg" alt="Profile Picture" class="about-image"> 
+    </div>
+    <div class="about-text">
+    <p>Data Scientist with a passion for transforming raw data into actionable insights. With a strong foundation in Python, SQL, and data visualization tools like Tableau, I thrive in environments where data-driven decision-making is key. My journey into data science began with a fascination for uncovering hidden patterns and trends within complex datasets, and it has evolved into a career dedicated to solving real-world problems through analytical rigor and innovative solutions.</p>
+    <p>My expertise lies in developing and implementing machine learning models, creating compelling data visualizations, and communicating findings to stakeholders. From building Python-based task management systems to analyzing housing market variables with linear regression, my projects reflect a diverse skill set and a commitment to excellence in every endeavor. I continuously seek to expand my knowledge and stay abreast of the latest advancements in the field, ensuring that I deliver top-notch results in all my projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section">
+  <div class="container">
+    <h2 class="project-heading">Projects</h2>
+    <!-- Project Cards -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="dunsfort.github.io/images/Task_Manager-logo.PNG" class="card-img-top" alt="Project 1">
+          <div class="card-body">
+            <h5 class="card-title">Project 1: Python</h5>
+            <p class="card-text">Task Manager Python is a Python-based command-line task manager application. It allows users to register, login, and manage tasks. Admins have additional privileges, such as registering users and viewing statistics. User data is stored in a text file, and tasks are stored in another text file.</p>
+            <a href="https://github.com/dunsfort/Task_Manager/tree/master" class="btn btn-primary" target="_blank">Source Code</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="dunsfort.github.io/images/dashboard.png" class="card-img-top" alt="Project 2">
+          <div class="card-body">
+            <h5 class="card-title">Project 2: Tableau</h5>
+            <p class="card-text">Using Tableau, I created interactive visualizations to uncover trends and insights about high-growth companies, including dominant industries, geographic hotspots for growth, and revenue patterns. This project demonstrates my ability to process and visualize complex datasets, providing meaningful business insights through data analysis.</p>
+            <a href="https://public.tableau.com/app/profile/ntakaneng.dunsfort.malejane/viz/DataVisualization-Tableau1/Dashboard2?publish=yes" class="btn btn-primary" target="_blank">Tableau Project</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="dunsfort.github.io/images/linear_regression.PNG" class="card-img-top" alt="Project 3">
+          <div class="card-body">
+            <h5 class="card-title">Project 3: Linear Regression</h5>
+            <p class="card-text">The project aimed to analyze the relationship between various housing market variables and construct a multiple linear regression model. This model forecasts the median house value based on key predictors such as the 'lm' (lower status of the population) and 'lstat' (percentage of lower status of the population) variables.</p>
+            <a href="https://github.com/dunsfort/Linear_Regression-" class="btn btn-primary" target="_blank">Linear Regression</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills-section">
+  <div class="container">
+    <h2 class="skills-heading">Skills</h2>
+    <!-- Skill Cards -->
+    <div class="row">
+      <!-- Python Skill Card -->
+      <div class="col-md-4">
+        <div class="card skills-card">
+          <div class="d-flex justify-content-center align-items-center">
+            <img src="dunsfort.github.io/images/python-logo.png" class="card-img-top w-50" alt="Python">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Python</h5>
+            <p class="card-text">Embarked on an exciting journey into Python, where each step brought me closer to mastering the language. I began by crafting my very first program, laying the groundwork for my exploration into data types, control structures, and error handling. As I delved deeper, I discovered the efficiency of various data structures and learned to harness the power of user-defined functions to streamline my code.</p>
+            <p class="card-text">Throughout this adventure, I encountered challenges that tested my skills and resilience, but each confrontation became an opportunity for growth. With every milestone reached, from understanding the basics to implementing complex functionalities, I gained confidence and expertise. Building on the progress made, I am committed to continuing my learning journey to ensure the relevance and depth of my language proficiency. Each completed task represents a significant milestone in my ongoing pursuit.</p>
+            <a href="https://www.hyperiondev.com/portfolio/182543/" class="btn btn-primary" target="_blank">Bootcamp link</a>
+            <a href="https://www.iconfinder.com/search?q=Python+logo" class="btn btn-primary" target="_blank">Icon by Iconfinder</a>
+          </div>
+        </div>
+      </div>
+      <!-- Natural Language Processing Skill Card -->
+      <div class="col-md-4">
+        <div class="card skills-card">
+          <div class="d-flex justify-content-center align-items-center">
+            <img src="dunsfort.github.io/images/NLP-logo.png" class="card-img-top w-50" alt="Data Visualization">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Natural Language Processing</h5>
+            <p class="card-text">I possess a strong background in Natural Language Processing (NLP), as evidenced by my extensive work with SpaCy, a leading NLP library in Python. My expertise includes performing tokenization, part-of-speech tagging, and named entity recognition (NER). I have effectively utilized SpaCy's pre-trained models to analyze complex garden path sentences, which are designed to challenge linguistic parsing systems. </p>
+             <p class="card-text">This project highlighted the capabilities and limitations of current NLP models, showing both correct identifications, like Mississippi as a geopolitical entity, and misclassifications, like Band-Aid as an organization. My work involved also a critical analysis of the outcomes, providing insights into the performance of NLP tools. This hands-on experience, combined with my knowledge of various NLP tasks and tools, underscores my profound understanding and capability in the field of NLP.</p>
+            <a href="https://github.com/dunsfort/natural_language_processing/tree/master" class="btn btn-primary" target="_blank">View NLP Project</a>
+            <a href="https://www.freepik.com/search?format=search&last_filter=query&last_value=NLP&query=NLP&type=icon" class="btn btn-primary" target="_blank">Icon by Freepik</a>
+        </div>
+        </div>
+      </div>
+      <!-- SQL Skill Card -->
+      <div class="col-md-4">
+        <div class="card skills-card">
+          <div class="d-flex justify-content-center align-items-center">
+            <img src="dunsfort.github.io/images/SQL-logo.png" class="card-img-top w-50" alt="SQL">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">SQL</h5>
+            <p class="card-text">SQL proficiency is a critical aspect of my skill set, facilitating efficient data management and analysis. Through optimized queries, I swiftly uncover insights from complex datasets, ensuring data integrity for informed decision-making. Mastery of SQL transforms challenges into opportunities, consistently delivering actionable intelligence that drives success. From my perspective, SQL proficiency is foundational in my data science journey, empowering me to navigate intricate landscapes with precision.</p>
+            <p class="card-text">Crafting optimized queries allows me to access and analyze vast datasets, ensuring data integrity and usability. From my perspective, SQL mastery enhances every aspect of my data-driven endeavors, driving tangible results for businesses. By organizing data and extracting insights, I leverage SQL to its fullest potential, empowering informed decision-making and contributing to the success of projects and initiatives.</p>
+            <a href="https://public.tableau.com/app/profile/ntakaneng.dunsfort.malejane/viz/DataVisualization-Tableau1/Dashboard2?publish=yes" class="btn btn-primary">Bootcamp link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Other Skills Section -->
+<section id="other-skills" class="other-skills-section">
+  <div class="container">
+    <h2 class="other-skills-heading">Other Skills</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card other-skills-card">
+          <div class="card-body">
+            <h5 class="card-title">Data & Web Portfolio</h5>
+            <p class="card-text">Welcome to the Web Development section of my portfolio. As a Data Scientist with a passion for creating meaningful online experiences, I've honed my skills in web development to complement my primary expertise. Leveraging HTML, CSS, and Bootstrap, I've crafted dynamic and visually engaging websites that showcase not only my data science projects but also my ability to communicate effectively through the digital medium. While my core focus remains on data-driven insights, my proficiency in web development allows me to amplify the impact of my work by presenting it in accessible and captivating formats. From crafting responsive interfaces to implementing user-friendly features, I bring a holistic approach to data communication, ensuring that stakeholders can interact with and derive value from the information presented.</p>
+            <a href="https://github.com/dunsfort/dunsfort.github.io/tree/master" class="btn btn-primary" target="_blank">Website Portfolio</a>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card other-skills-card">
+          <div class="card-body">
+            <h5 class="card-title">Data Storytelling</h5>
+            <p class="card-text">Here, I demonstrate my ability to transform raw data into compelling narratives that inform, engage, and inspire action. As a Data Scientist, I understand the importance of effectively communicating insights derived from data. Whether it's uncovering trends, identifying patterns, or predicting outcomes, data storytelling allows me to convey complex information in a clear and impactful manner. Through a combination of data visualization techniques, narrative structure, and domain knowledge, I bring data to life, enabling stakeholders to make informed decisions and drive meaningful outcomes. Moreover, I possess a strong track record of developing scientific data from scratch, conducting in-depth analysis, and reporting findings through compelling text and visuals. You can verify my expertise by accessing my published scientific article on the bottom link.</p>
+            <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/fsn3.559" class="btn btn-primary" target="_blank">Scientific Research Paper</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Me Section -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2 class="contact-heading">Contact Me</h2>
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <!-- Small phone icon -->
+      <i class="fas fa-phone fa-xs contact-icon"></i> +27 71 146 4546 &nbsp;&nbsp;
+      <!-- Small message icon -->
+      <i class="fas fa-envelope fa-xs contact-icon"></i> dunsfortedge@gmail.com
+    </div>
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/ntakaneng-dunsfort-4404978b/" class="social-icon" data-toggle="tooltip" data-placement="top" title="LinkedIn" target="_blank">
+        <img src="dunsfort.github.io/images/iconslinkedin.png" alt="LinkedIn" class="logo">
+      </a>
+      <a href="https://github.com/dunsfort" class="social-icon" data-toggle="tooltip" data-placement="top" title="GitHub" target="_blank">
+        <img src="dunsfort.github.io/images/iconsgithub.png" alt="GitHub" class="logo">
+      </a>
+      <a href="#" class="social-icon" data-toggle="tooltip" data-placement="top" title="Medium">
+        <img src="dunsfort.github.io/images/iconsmedium.png" alt="Medium" class="logo">
+      </a>
+      <a href="#" class="social-icon" data-toggle="tooltip" data-placement="top" title="YouTube">
+        <img src="dunsfort.github.io/images/iconsyoutube.png" alt="YouTube" class="logo">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  // Initialize Bootstrap tooltips
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>
+</body>
+</html>
